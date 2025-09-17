@@ -1,0 +1,169 @@
+# 223020183-JAVA-PROGRAMMING-GISUBIZO-Sandrine
+**case study one**
+package javaassignment;
+
+import java.util.Scanner;
+
+public class SupermarketBillingSystem {
+    public static void main(String[] args) {
+    
+    	        Scanner input = new Scanner(System.in);
+    	        
+    	        System.out.print("enter number of product? ");
+    	        int items = input.nextInt();
+    	        
+    	        double total = 0;
+    	        
+    	        System.out.println("\n======================= RECEIPT ===================");
+    	        
+    	        for (int i = 1; i <= items; i++) {
+    	            System.out.print("number of item " + i + " name of item: ");
+    	            String name = input.next();
+    	            
+    	            System.out.print("Price: ");
+    	            double price = input.nextDouble();
+    	            
+    	            System.out.print("Quantity of product: ");
+    	            int qty = input.nextInt();
+    	            
+    	            double subtotal = price * qty;
+    	            total = total + subtotal;
+    	            
+    	            System.out.println(name + " - " + qty + " x " + price + " = " + subtotal);
+    	        }
+    	        
+    	        System.out.println("\nTotal: " + total);
+    	        
+    	        // discount
+    	        if (total > 50000) {
+    	            double discount = total * 1.5;
+    	            double finalAmount = total - discount;
+    	            System.out.println("Discount : " + discount);
+    	            System.out.println("last Amount: " + finalAmount);
+    	        } else {
+    	            System.out.println("last Amount: " + total);
+    	        }
+    	        
+    	        input.close();
+          **  ** case study 2****
+          package javaassignment;
+
+import java.util.Scanner;
+
+public class studentgradingsystem {
+	public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int totalStudents = 0;
+        int passe = 0;
+        int fail= 0;
+        
+        System.out.println("=============GRADING SYSTEM ===========================");
+        System.out.println("Enter student marks between 0 to 100");
+        while (true) {
+            System.out.print("Enter marks: ");
+            int marks = input.nextInt();
+            if (marks == -1) {
+                break;
+            }
+            
+            totalStudents++;
+            String grade;
+            if (marks >= 80) {
+                grade = "A";
+            } else if (marks >= 70) {
+                grade = "B";
+            } else if (marks >= 60) {
+                grade = "C";
+            } else if (marks >= 50) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+            
+            System.out.println("Grade: " + grade);
+            
+            // Count passes and fails
+            if (marks >= 50) {
+                passe++;
+            } else {
+                fail++;
+            }
+        }
+        
+        // Print summary report
+        System.out.println("=============== SUMMARY REPORT =======================");
+        System.out.println("Total number of students: " + totalStudents);
+        System.out.println(" if you Passed: " + passe);
+        System.out.println(" if you Failed: " + fail);
+        
+        if (totalStudents > 0) {
+            double passRate = (passe * 100) / totalStudents;
+            System.out.println("Pass rate: " + passRate + "%");
+        }
+        
+        input.close();
+    }
+}
+
+
+**case study 3**
+package javaassignment;
+
+import java.util.Scanner;
+
+public class classantendancetracker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter total student number of class ");
+        int totalStudents = input.nextInt();
+        
+        int[] attendance = new int[30];
+        int dayCount = 0;
+        String continueInput;
+        
+        System.out.println("===================== attendance list=================================== ===");
+        
+     
+        do {
+            System.out.print("Day " + (dayCount + 1) + "available Students : ");
+            attendance[dayCount] = input.nextInt();
+            dayCount++;
+            
+            System.out.print("Enter attendance for other day? (yes/no): ");
+            continueInput = input.next();
+            
+        } while (continueInput.equals("yes") && dayCount < 30);
+        int totalAttendance = 0;
+        for (int i = 0; i < dayCount; i++) {
+            totalAttendance += attendance[i];
+        }
+        double average = (double) totalAttendance / dayCount;
+        int lowAttendanceDays = 0;
+        for (int i = 0; i < dayCount; i++) {
+            if (attendance[i] < totalStudents * 0.5) {
+                lowAttendanceDays++;
+            }
+        }
+  
+        System.out.println("\n=== ATTENDANCE general ===");
+        System.out.println("Day\tStudents available");
+        System.out.println("____________________\t_______________________");
+        for (int i = 0; i < dayCount; i++) {
+            System.out.println((i + 1) + "\t" + attendance[i]);
+        }
+               System.out.println("=============================== STATISTICS ==================");
+        System.out.println("Total days recorded: " + dayCount);
+        System.out.println("Average : " + average);
+        System.out.println("Days with low attendance : " + lowAttendanceDays);
+        
+        double lowAttendancePercentage = (double) lowAttendanceDays / dayCount * 100;
+        System.out.println("low attendance days on 100: " + lowAttendancePercentage + "%");
+        
+        input.close();
+    }
+    
+}
+    	    }
+    	}
