@@ -1,0 +1,83 @@
+package shapeselect;
+
+import java.util.Scanner;
+
+public class shape {
+	public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+                String choice;
+				do {
+                    System.out.println("Select a shape:");
+                    System.out.println("1. Rectangle");
+                    System.out.println("2. Circle");
+                    System.out.println("3. Square");
+                    System.out.println("4. Triangle");
+
+                    int shape = input.nextInt();
+
+                    System.out.println("what to calculate?");
+                    System.out.println("1. Area");
+                    System.out.println("2. Perimeter");
+                    int calc = input.nextInt();
+
+                    switch (shape) {
+                        case 1:
+                            System.out.print("Enter length: ");
+                            double length = input.nextDouble();
+                            System.out.print("Enter width: ");
+                            double width = input.nextDouble();
+                            if (calc == 1) {
+                                System.out.println("Area of rectangle = " + (length * width));
+                            } else {
+                                System.out.println("Perimeter of rectangle = " + (2 * (length + width)));
+                            }
+                            break;
+
+                        case 2: 
+                            System.out.print("Enter radius: ");
+                            double radius = input.nextDouble();
+                            if (calc == 1) {
+                                System.out.println("Area  of circle= " + (Math.PI * radius * radius));
+                            } else {
+                                System.out.println("Perimeter of circle = " + (2 * Math.PI * radius));
+                            }
+                            break;
+
+                          case 3: 
+                            System.out.print("Enter side: ");
+                            double side = input.nextDouble();
+                            if (calc == 1) {
+                                System.out.println("Area  of square= " + (side * side));
+                            } else {
+                                System.out.println("Perimeter of square = " + (4 * side));
+                            }
+                            break;
+
+                        case 4: 
+                            System.out.print("Enter base: ");
+                            double base = input.nextDouble();
+                            System.out.print("Enter height: ");
+                            double height = input.nextDouble();
+                            if (calc == 1) {
+                                System.out.println("Area of triangle = " + (0.5 * base * height));
+                            } else {
+                                System.out.println("Enter hypothesis sides: ");
+                                double side1 = input.nextDouble();
+                                System.out.println("Perimeter of triangle= " + (base + side1 + height));
+                            }
+                            break;
+
+                        default:
+                            System.out.println("incorrect choice!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+
+                    System.out.println("Would you like to continue? (yes/no)");
+                    choice = input.next();
+
+                } while (choice.equalsIgnoreCase("yes"));
+
+                System.out.println("Thank you !!!!!!!!!!!!!!!!!");
+                input.close();
+            }
+        }
