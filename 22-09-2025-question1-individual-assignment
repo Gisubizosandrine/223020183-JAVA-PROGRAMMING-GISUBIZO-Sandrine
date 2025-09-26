@@ -1,0 +1,106 @@
+//question1
+//223020183
+//gisubizo sandrine
+package assignquestion2;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+
+
+public class Loginform1 extends JFrame implements ActionListener {
+	JLabel nameLb=new JLabel("Names");
+	JLabel usernameLb=new JLabel("UserName");
+	JLabel passlb=new JLabel("Password");
+JTextField namestxt=new JTextField();
+JTextField usernametxt=new JTextField();
+JPasswordField passtxt=new JPasswordField();
+
+JButton registerbtn=new JButton("Register");	
+JButton resetbtn=new JButton("Reset");	
+
+public Loginform1(){
+	setTitle("login form");
+	setBounds(200,100,400,400);
+	setLayout(null);
+	getContentPane(). setBackground(Color.GRAY);
+	setVisible(true);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	// SETBOUND
+	 nameLb.setBounds(10, 10, 100, 30);
+	namestxt.setBounds(120, 10, 100, 30);
+
+	
+	usernameLb.setBounds(10, 50, 100, 30);
+	usernametxt.setBounds(120, 50, 100, 30);
+	passlb.setBounds(10, 90, 100, 30);	
+	passtxt.setBounds(120, 90, 100, 30);	
+	registerbtn.setBounds(20,120,100,30);
+	resetbtn.setBounds(150,120,100,30);
+	//add
+	add(nameLb);
+	add(namestxt);
+	add(usernameLb);
+	add(usernametxt);
+	add(passlb);
+	
+	add(passtxt);
+	add(registerbtn);
+	add(resetbtn);
+	registerbtn.addActionListener(this);
+	resetbtn.addActionListener(this);
+	setVisible(true);
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}
+	
+		
+	
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==registerbtn){
+			String uname= namestxt.getText();
+			String usern=  usernametxt.getText();
+			String pass=new String(passtxt.getPassword());
+			if(uname.equalsIgnoreCase("sandrine") && usern.equalsIgnoreCase("stud") && pass.equals("12345")){}
+			JOptionPane.showMessageDialog(this,"register successful!","sucess",JOptionPane.INFORMATION_MESSAGE);
+		dispose();
+		
+		}else{
+			JOptionPane.showMessageDialog(this,"register unsuccessful!","error",JOptionPane.
+					ERROR_MESSAGE);
+		
+	}
+		 if(e.getSource() == resetbtn) {
+			namestxt.setText("");
+			usernametxt.setText("");
+			passtxt.setText("");
+
+	}}
+//class2
+package formassignment;
+
+
+
+public class formtest {
+
+	public static void main(String[] args) {
+			Loginform1 lgnfrm=new Loginform1();
+
+	}
+
+}
+//question2
+
+
+
+
+
+
+}
