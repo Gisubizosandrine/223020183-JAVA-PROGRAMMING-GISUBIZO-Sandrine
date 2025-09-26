@@ -1,0 +1,93 @@
+//223020183
+//gisubizo sandrine
+
+package assignment2;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
+import javax.swing.*;
+
+public class Loginform2 extends JFrame implements ActionListener {
+	 JLabel amountlb = new JLabel("Amount Requested");
+	    JLabel durationlb = new JLabel("Duration (Year)");
+	    JLabel totallb   = new JLabel("Total To Return");
+
+	    JTextField amounttxt = new JTextField("2000000");
+	    JTextField durationtxt = new JTextField("1");
+	    JTextField totaltxt = new JTextField();
+	    JButton calculate = new JButton("CALCULATE");
+
+	    public Loginform2() {
+	        setTitle("Loan Calculator");
+	        setBounds(200, 100, 400, 250);
+	        setLayout(null);
+	        getContentPane().setBackground(new Color(100, 150, 200));
+	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	        amountlb.setBounds(30, 30, 150, 30);
+	        amounttxt.setBounds(200, 30, 150, 30);
+
+	        durationlb.setBounds(30, 70, 150, 30);
+	        durationtxt.setBounds(200, 70, 150, 30);
+
+	        totallb.setBounds(30, 110, 150, 30);
+	        totaltxt.setBounds(200, 110, 150, 30);
+	        totaltxt.setEditable(false);
+
+	        calculate.setBounds(120, 160, 130, 40);
+
+	        add(amountlb); add(amounttxt);
+	        add(durationlb); add(durationtxt);
+	        add(totallb); add(totaltxt);
+	        add(calculate);
+
+	        calculate.addActionListener(this);
+	        setVisible(true);
+	    }
+
+	    public void actionPerformed(ActionEvent e) {
+	        try {
+	        
+	            String amtStr = amounttxt.getText().trim().replaceAll(",", "");
+	            double amount = Double.parseDouble(amtStr);
+	            int duration = Integer.parseInt(durationtxt.getText().trim());
+
+	            double interestrate = 0.006; 
+	            double totalDouble = amount + (amount * interestrate * duration);
+
+	         
+	            DecimalFormat df = new DecimalFormat("#,##0");
+	            totaltxt.setText(df.format(totalDouble));
+
+	        } catch (NumberFormatException ex) {
+	            JOptionPane.showMessageDialog(this, "Please enter valid numeric values.", "Input error", JOptionPane.ERROR_MESSAGE);
+	        } catch (Exception ex) {
+	            JOptionPane.showMessageDialog(this, "Unexpected error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	     
+	        SwingUtilities.invokeLater(new Runnable() {
+	            public void run() {
+	                new Loginform2();
+	            }
+	        });
+	    }
+	}
+//mainfunction
+package assignment2;
+
+
+public class assigntest {
+
+	public static void main(String[] args) {
+		Loginform2 lgnfrm2=new Loginform2();
+
+	}
+
+}
+
